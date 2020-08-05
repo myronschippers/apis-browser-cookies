@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import FavoriteCreature from '../FavoriteCreature/FavoriteCreature';
 
 class App extends Component {
   state = {
@@ -26,20 +27,21 @@ class App extends Component {
 
   // React renders the content to the application view
   render() {
-    let myCreature = <h3>You have not chosen a Favorite Creature</h3>;
+    // let myCreature = <h3>You have not chosen a Favorite Creature</h3>;
 
-    if (this.state.favoriteCreature != null
-        && this.state.favoriteCreature.length > 0
-    ) {
-        myCreature = <h3>Your Favorite Creature: {this.state.favoriteCreature}</h3>;
-    }
+    // if (this.state.favoriteCreature != null
+    //     && this.state.favoriteCreature.length > 0
+    // ) {
+    //     myCreature = <h3>Your Favorite Creature: {this.state.favoriteCreature}</h3>;
+    // }
 
     return (
       <div>
-        <div className="headerBar">
+        <FavoriteCreature creature={this.state.favoriteCreature} />
+        {/* <div className="headerBar">
           <h1>Browser Cookies</h1>
           {myCreature}
-        </div>
+        </div> */}
 
         <div className="container">
           <label className="formField">
