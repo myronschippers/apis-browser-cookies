@@ -1,0 +1,61 @@
+.headerBar {
+    padding: 8px 16px;
+    margin: 0 0 26px;
+    background-color: royalblue;
+    color: #ffffff;
+    text-align: center;
+    border: 1px solid rgb(0,0,0,0.3);
+    box-shadow: 0 1px 6px rgb(0,0,0,0.3);
+}
+
+.headerBar h1,
+.headerBar h2,
+.headerBar h3,
+.headerBar h4,
+.headerBar h5,
+.headerBar h6 {
+    margin: 0 0 8px;
+}
+
+.container {
+    max-width: 360px;
+    padding: 16px;
+    margin: 0 auto;
+    border: 1px solid rgb(0,0,0,0.1);
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgb(0,0,0,0.1);
+}
+
+.formField > * + * {
+    margin: 8px 0 0;
+}
+
+.formField input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #878787;
+    border-radius: 3px;
+    font-size: 1.1rem;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 15px 0 0;
+    background-color: #1a50ad;
+    border: 1px solid #082658;
+    box-sizing: border-box;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: royalblue;
+    border: 1px solid #082658;
+}
