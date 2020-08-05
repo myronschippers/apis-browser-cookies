@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Installation
 
 1. `npm install`
-1. `npm start`
+1. `npm run client`
 
 ## Moving Cookie Sessions off to the Server
 
