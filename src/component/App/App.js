@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import FavoriteCreature from '../FavoriteCreature/FavoriteCreature';
 import { setCookie, getCookie } from '../../services/cookies.service';
+import axios from 'axios';
 
 class App extends Component {
   state = {
@@ -11,10 +12,14 @@ class App extends Component {
 
   componentDidMount() {
     // GET MY COOKIES
-    const favoriteCreature = getCookie('favoriteCreature');
-    this.setState({
-      favoriteCreature,
-    })
+    // const favoriteCreature = getCookie('favoriteCreature');
+
+    // make GET API call
+    this.getCreature();
+
+    // this.setState({
+    //   favoriteCreature,
+    // })
   }
 
   // tracking what the user enters into the form field
@@ -28,14 +33,45 @@ class App extends Component {
   saveCreature = (event) => {
     const creature = this.state.enteredCreature;
 
-    setCookie('favoriteCreature', creature);
-    setCookie('random', 'WHAT?');
-    setCookie('stuff', 'KittyKat');
-    setCookie('maddness', 'March?');
+    // setCookie('favoriteCreature', creature);
+    // setCookie('random', 'WHAT?');
+    // setCookie('stuff', 'KittyKat');
+    // setCookie('maddness', 'March?');
+
+    this.postCreature(creature);
+
     this.setState({
       enteredCreature: '',
-      favoriteCreature: creature,
     });
+  }
+
+  //
+  // API CALLS
+  // ------------------------------
+
+  getCreature() {
+    axios.get('/api/creature')
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          favoriteCreature: response.data.favoriteCreature,
+        })
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('Something FAILED!!! Do better.');
+      })
+  }
+
+  postCreature(creature) {
+    axios.post('/api/creature', { creature })
+      .then((response) => {
+        this.getCreature();
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('Something FAILED!!! Not enough SAVING.');
+      });
   }
 
   // React renders the content to the application view
